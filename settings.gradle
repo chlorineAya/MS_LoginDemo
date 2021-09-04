@@ -1,0 +1,3 @@
+rootProject.name = "LoginMS"
+include ':app'
+include ':LoginTool'
