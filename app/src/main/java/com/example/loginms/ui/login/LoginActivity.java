@@ -143,14 +143,14 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     MinecraftAuthenticator minecraftAuthenticator = new MinecraftAuthenticator();
                     //通过EditText输入的账号密码调用Microsoft验证工具类登录获取令牌的字符串并通过令牌获取需要的用户名、uuid等信息。
-	    //EditText的内容为String，因此获取token的函数正常调用如下：
- 	    //tk = minecraftAuthenticator.loginWithXbox(String email, String password);
+	    	    //EditText的内容为String，因此获取token的函数正常调用如下：
+ 	            //tk = minecraftAuthenticator.loginWithXbox(String email, String password);
                     tk = minecraftAuthenticator.loginWithXbox(usernameEditText.getText().toString(), passwordEditText.getText().toString());
                     pf = minecraftAuthenticator.checkOwnership(tk);
-	    //线程执行成功结束后发送消息，标记参数为1
+	            //线程执行成功结束后发送消息，标记参数为1
                     han.sendEmptyMessage(1);
                 } catch (AuthenticationException e) {
-	    //登录失败之后使用snackbar展示错误原因。
+	            //登录失败之后使用snackbar展示错误原因。
                     Snackbar.make(rl, "登录失败,原因如下:\n"+e, Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     han.sendEmptyMessage(0);
@@ -168,8 +168,8 @@ public class LoginActivity extends AppCompatActivity {
             //判断what参数，如果是1就展示用户信息，否则不对错误信息进行处理。
             if (msg.what == 1) {
                 if (pf != null && tk != null) {
-	    //将保存到的需要使用的uuid数据转换成字符串，用户名和令牌在登录成功后已经获取了字符串。
-	    //Minecraft账号的核心是验证令牌，证明你是Minecraft的账号，uuid和username则用于展示你的皮肤和用户名
+	            //将保存到的需要使用的uuid数据转换成字符串，用户名和令牌在登录成功后已经获取了字符串。
+	            //Minecraft账号的核心是验证令牌，证明你是Minecraft的账号，uuid和username则用于展示你的皮肤和用户名
                     name.setText("<Username>\n"+pf.getUsername());
                     uuid.setText("<UUID>\n"+pf.getUuid().toString());
                     token.setText("<Token>\n"+tk.getAccessToken());
