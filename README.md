@@ -18,3 +18,8 @@ MinecraftAuthenticator minecraftAuthenticator = new MinecraftAuthenticator();
 MinecraftToken minecraftToken = minecraftAuthenticator.login("EMAIL", "PASSWORD");
 MinecraftProfile minecraftProfile = minecraftAuthenticator.checkOwnership(minecraftToken);
 ```
+## 展示
+登录
+![image](https://github.com/NaCln4c1/MS_LoginDemo/blob/main/pictures/login.jpg)  
+披风
+![image](https://github.com/NaCln4c1/MS_LoginDemo/blob/main/pictures/skin_cape.jpg)  
